@@ -51,7 +51,7 @@ options = """
 6.)    turn on hibernate
 7.)    tree (better Responsiveness)
 8.)    Delete Windows Update Cache
-9.)    updater
+9.)    update
 10.)   more info
 11.)   exit
 """
