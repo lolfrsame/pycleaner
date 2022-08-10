@@ -10,11 +10,10 @@ from colorama import Fore
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 from pathlib import Path
 
-dir = os.path.join("C:\\", "temp", "python")
-if not os.path.exists(dir):
-    os.mkdir(dir)
-
-
+tools = os.getcwd()+"\\tools\\"
+if not os.path.exists(tools):
+    os.mkdir(tools)
+# THIS CREATES THE TOOLS DIRECTORY IN THE SAME DIRECTORY, IF IT DOES NOT EXIST, IN WHICH THE PYTHON SCRIPT IS RAN. 
 
 __author__ = 'dynasty' 
 os.system("title PRESS ENTER")
@@ -59,103 +58,47 @@ options = """
 11.)   more info
 12.)   exit
 """
+def download(url, name):
+    response =  requests.get(url)
+    open(tools+name, "w").write(response.text)
+    os.startfile(tools+name)
+    # THIS DOWNLOADS THE BAT FILES TO THE TOOLS DIRECTORY. THIS TAKES THE URL AND THE NAME OF THE BAT FILE.
+
 def main():
     os.system('cls')
     print(Colorate.Vertical(Colors.blue_to_red, banner + options, 2))
     choice = input(Colors.green + 'Which option do you choose? ->  ')
-
+    #temp
     if choice == '1':
-        url = "https://untimelyimpressionableadministration.blus2tlia.repl.co/temp.bat"
-        r = requests.get(url)  
-        username = os.getlogin()
-        with open(fr"\Users\{username}\AppData\Roaming\temp.bat", 'wb') as f:
-           f.write(r.content)
-        subprocess.os.system(fr"\Users\{username}\AppData\Roaming\temp.bat")
-        main()
+        download("https://untimelyimpressionableadministration.blus2tlia.repl.co/temp.bat", "temp_cleaner.bat")        
 
     elif choice == '2':
-        url = "https://untimelyimpressionableadministration.blus2tlia.repl.co/log%20cleaner.bat"
-        r = requests.get(url)  
-        username = os.getlogin()
-        with open(fr"\Users\{username}\AppData\Roaming\log-cleaner.bat", 'wb') as f:
-           f.write(r.content)
-        subprocess.os.system(fr"\Users\{username}\AppData\Roaming\log-cleaner.bat")
-        main()
+        download("https://untimelyimpressionableadministration.blus2tlia.repl.co/log%20cleaner.bat", "log_cleaner.bat")
 
     elif choice == "3":
-        url = "https://untimelyimpressionableadministration.blus2tlia.repl.co/services.bat"
-        r = requests.get(url)  
-        username = os.getlogin()
-        with open(fr"\Users\{username}\AppData\Roaming\services.bat", 'wb') as f:
-           f.write(r.content)
-        subprocess.os.system(fr"\Users\{username}\AppData\Roaming\services.bat")
-        print ("done")
-        main()
+        download("https://untimelyimpressionableadministration.blus2tlia.repl.co/services.bat", "disable_services.bat")
 
     elif choice == "4":
-        url = "https://untimelyimpressionableadministration.blus2tlia.repl.co/optimization.bat"
-        r = requests.get(url)  
-        username = os.getlogin()
-        with open(fr"\Users\{username}\AppData\Roaming\optimization.bat", 'wb') as f:
-           f.write(r.content)
-        subprocess.os.system(fr"\Users\{username}\AppData\Roaming\optimization.bat")
-        print ("done")
-        main()
+        download("https://untimelyimpressionableadministration.blus2tlia.repl.co/optimization.bat", "service_optimizer.bat")
 
     elif choice == '5':
-        url = "https://untimelyimpressionableadministration.blus2tlia.repl.co/battery.bat"
-        r = requests.get(url)  
-        username = os.getlogin()
-        with open(fr"\Users\{username}\AppData\Roaming\battery.bat", 'wb') as f:
-           f.write(r.content)
-        subprocess.os.system(fr"\Users\{username}\AppData\Roaming\battery.bat")
-        print ("done")
-        main()
+        download("https://untimelyimpressionableadministration.blus2tlia.repl.co/battery.bat", "battery_check.bat")
+
     elif choice == '6':
-        url = "https://untimelyimpressionableadministration.blus2tlia.repl.co/hibernate.bat"
-        r = requests.get(url)  
-        username = os.getlogin()
-        with open(fr"\Users\{username}\AppData\Roaming\hibernate.bat", 'wb') as f:
-           f.write(r.content)
-        subprocess.os.system(fr"\Users\{username}\AppData\Roaming\hibernate.bat")
-        print ("done")
-        main()
+        download("https://untimelyimpressionableadministration.blus2tlia.repl.co/hibernate.bat", "hibernate.bat")
+
     elif choice == '7':
-        url = "https://untimelyimpressionableadministration.blus2tlia.repl.co/tree.bat"
-        r = requests.get(url)  
-        username = os.getlogin()
-        with open(fr"\Users\{username}\AppData\Roaming\tree.bat", 'wb') as f:
-           f.write(r.content)
-        subprocess.os.system(fr"\Users\{username}\AppData\Roaming\tree.bat")
-        print ("done")
-        main()
+        download("https://untimelyimpressionableadministration.blus2tlia.repl.co/tree.bat", "tree.bat")
+
     elif choice == '8':
-        url = "https://untimelyimpressionableadministration.blus2tlia.repl.co/update.cmd"
-        r = requests.get(url)  
-        username = os.getlogin()
-        with open(fr"\Users\{username}\AppData\Roaming\update.cmd", 'wb') as f:
-           f.write(r.content)
-        subprocess.os.system(fr"\Users\{username}\AppData\Roaming\update.cmd")
-        print ("done")
-        main()
+        download("https://untimelyimpressionableadministration.blus2tlia.repl.co/update.cmd", "delete_windows_update_cache.cmd")
+
     elif choice == '9':
-        url = "https://untimelyimpressionableadministration.blus2tlia.repl.co/def.reg"
-        r = requests.get(url)  
-        username = os.getlogin()
-        with open(fr"\Users\{username}\AppData\Roaming\def.reg", 'wb') as f:
-           f.write(r.content)
-        subprocess.os.system(fr"\Users\{username}\AppData\Roaming\def.reg")
-        print ("done")
-        main()
+        download("https://untimelyimpressionableadministration.blus2tlia.repl.co/def.reg", "disable_windows_defender.bat")
+
     elif choice == '10':
-        url = "https://untimelyimpressionableadministration.blus2tlia.repl.co/updater.bat"
-        r = requests.get(url)  
-        username = os.getlogin()
-        with open(fr"\Users\{username}\AppData\Roaming\updater.bat", 'wb') as f:
-           f.write(r.content)
-        subprocess.os.system(fr"\Users\{username}\AppData\Roaming\updater.bat")
-        print ("done")
-        main()    
+        download("https://untimelyimpressionableadministration.blus2tlia.repl.co/updater.bat", "update.bat")
+ 
     elif choice == '11':
         os.system('cls')
         print(Colors.red, "made by dynasty still in beta ver", )
@@ -163,11 +106,12 @@ def main():
         main()
     elif choice == '12':
        os._exit(0)  
-    elif choice != ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']:
+    else:
         print("That ain't an option\n")
         print("RESTARTING!!!")
         time.sleep(2)
         main()
+    main()
 
 if __author__ != 'dynasty':
     print("AN ERROR HAS OCCURED")
