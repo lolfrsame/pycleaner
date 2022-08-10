@@ -33,7 +33,7 @@ System.Clear()
 Anime.Fade(Center.XCenter(banner), Colors.rainbow, Colorate.Vertical, interval=0.025, enter=True)
 os.system("title fr cleaner")
 banner = Center.XCenter("""
-ver 1.0
+ver 1.1
 ███████╗██████╗░  ░█████╗░██╗░░░░░███████╗░█████╗░███╗░░██╗███████╗██████╗░
 ██╔════╝██╔══██╗  ██╔══██╗██║░░░░░██╔════╝██╔══██╗████╗░██║██╔════╝██╔══██╗
 █████╗░░██████╔╝  ██║░░╚═╝██║░░░░░█████╗░░███████║██╔██╗██║█████╗░░██████╔╝
@@ -101,7 +101,7 @@ def main():
  
     elif choice == '11':
         os.system('cls')
-        print(Colors.red, "made by dynasty still in beta ver", )
+        print(Colors.red, "made by dynasty still in beta ver 1.1", )
         input("Press Enter to continue...")
         main()
     elif choice == '12':
