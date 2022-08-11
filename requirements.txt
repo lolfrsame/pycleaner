@@ -8,3 +8,17 @@ os
 time
 string
 ctypes
+platform
+sys
+pathlib
+path
+pystyle
+Add
+Center
+Anime
+Colors
+Colorate
+Write
+System
+colorama
+Fore
