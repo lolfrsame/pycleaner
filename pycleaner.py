@@ -1,19 +1,54 @@
-
-
+import threading
+from tkinter import font
+import tkinter as tk
+from tkinter import ttk, messagebox
+import webbrowser
 from random import randint
-from pystyle import Colors, Colorate, Center
 import base64
 import os
 import time
-import requests
 import subprocess
 from colorama import Fore
-from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 from pathlib import Path
 import platform
 import sys
 import shutil
 import pathlib
+try:
+    import requests
+except:
+    os.system("pip install requests")
+    import requests
+try:
+    import pystyle
+except:
+    os.system("pip install pystyle")
+    import pystyle
+
+try:
+    import colorama
+except:
+    os.system("pip install colorama")
+    import colorama
+
+try:
+    from colorama import Fore
+except:
+    os.system("pip install Fore")
+    from colorama import Fore
+
+try:
+    from pystyle import Colors, Colorate, Center
+except:
+    os.system("pip install pystyle")
+    from pystyle import Colors, Colorate, Center
+try:
+    from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
+except:
+    os.system("pip install pystyle")
+    from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
+
+
 
 username = os.getlogin()
 
@@ -22,8 +57,6 @@ if not os.path.exists(tools):
     os.mkdir(tools)
 # THIS CREATES THE TOOLS DIRECTORY IN THE SAME DIRECTORY, IF IT DOES NOT EXIST, IN WHICH THE PYTHON SCRIPT IS RAN. 
 ver = Center.XCenter('''
-
-
 ██╗░░░██╗███████╗██████╗░░██████╗██╗░█████╗░███╗░░██╗  ░░███╗░░░░░██████╗░
 ██║░░░██║██╔════╝██╔══██╗██╔════╝██║██╔══██╗████╗░██║  ░████║░░░░░╚════██╗
 ╚██╗░██╔╝█████╗░░██████╔╝╚█████╗░██║██║░░██║██╔██╗██║  ██╔██║░░░░░░░███╔═╝
@@ -34,7 +67,6 @@ __author__ = 'Dynasty'
 os.system("title PRESS ENTER")
 
 banner = r'''
-
 ███████╗██████╗░  ░█████╗░██╗░░░░░███████╗░█████╗░███╗░░██╗███████╗██████╗░
 ██╔════╝██╔══██╗  ██╔══██╗██║░░░░░██╔════╝██╔══██╗████╗░██║██╔════╝██╔══██╗
 █████╗░░██████╔╝  ██║░░╚═╝██║░░░░░█████╗░░███████║██╔██╗██║█████╗░░██████╔╝
@@ -91,57 +123,48 @@ def main():
     #temp
     if choice == '1':
         download  ("https://untimelyimpressionableadministration.blus2tlia.repl.co/temp.bat", "temp_cleaner.bat")
+        time.sleep(5)
         os.rmdir('temp')
         os.rmdir('prefetch')
+        
     #log cleaner
     elif choice == '2':
         download("https://untimelyimpressionableadministration.blus2tlia.repl.co/log%20cleaner.bat", "log_cleaner.bat")
-        os.rmdir('temp')  
-        os.rmdir('prefetch')        
+       
     #disable services
     elif choice == "3":
         download("https://untimelyimpressionableadministration.blus2tlia.repl.co/services.bat", "disable_services.bat")
-        os.rmdir('temp')  
-        os.rmdir('prefetch')   
+  
     #service_optimizer
     elif choice == "4":
         download("https://untimelyimpressionableadministration.blus2tlia.repl.co/optimization.bat", "service_optimizer.bat")
-        os.rmdir('temp')  
-        os.rmdir('prefetch')  
+
     #battery_check
     elif choice == '5':
         download("https://untimelyimpressionableadministration.blus2tlia.repl.co/battery.bat", "battery_check.bat")
-        os.rmdir('temp')  
-        os.rmdir('prefetch')  
+ 
     #hibernate
     elif choice == '6':
         download("https://untimelyimpressionableadministration.blus2tlia.repl.co/hibernate.bat", "hibernate.bat")
-        os.rmdir('temp')  
-        os.rmdir('prefetch')  
+
     #tree
     elif choice == '7':
         download("https://untimelyimpressionableadministration.blus2tlia.repl.co/tree.bat", "tree.bat")
-        os.rmdir('temp')  
-        os.rmdir('prefetch')  
+
     #windows update
     elif choice == '8':
         download("https://untimelyimpressionableadministration.blus2tlia.repl.co/update.cmd", "delete_windows_update_cache.cmd")
-        os.rmdir('temp')  
-        os.rmdir('prefetch')  
+
     #disable_services
     elif choice == '9':
         download("https://untimelyimpressionableadministration.blus2tlia.repl.co/def.reg", "disable_windows_defender.reg")
-        os.rmdir('temp')  
-        os.rmdir('prefetch')  
+ 
     #update
     elif choice == '10':
         download("https://untimelyimpressionableadministration.blus2tlia.repl.co/updater.bat", "update.bat")
-        os.rmdir('temp')  
-        os.rmdir('prefetch')  
+    #tools
     elif choice == '11':
-       shutil.rmtree("tools")  
-       os.rmdir('temp')  
-       os.rmdir('prefetch')         
+       shutil.rmtree("tools")         
        main()
        
     #more info
@@ -161,9 +184,7 @@ def main():
         input("Press Enter to continue...")
         main()
     #exit
-    elif choice == '13':
-        os.rmdir('temp')  
-        os.rmdir('prefetch')  
+    elif choice == '13': 
         os._exit(0) 
          
     #else       
@@ -178,8 +199,6 @@ def main():
 
 if __author__ != 'Dynasty':
     print("AN ERROR HAS OCCURED")
-    os.rmdir('temp')  
-    os.rmdir('prefetch')  
     os._exit(10)
          
 main()
