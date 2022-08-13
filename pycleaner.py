@@ -50,21 +50,22 @@ except:
 
 
 
-username = os.getlogin()
 
+username = os.getlogin()
 tools = os.getcwd()+"\\tools\\"
 if not os.path.exists(tools):
     os.mkdir(tools)
 # THIS CREATES THE TOOLS DIRECTORY IN THE SAME DIRECTORY, IF IT DOES NOT EXIST, IN WHICH THE PYTHON SCRIPT IS RAN. 
 ver = Center.XCenter('''
-██╗░░░██╗███████╗██████╗░░██████╗██╗░█████╗░███╗░░██╗  ░░███╗░░░░░██████╗░
-██║░░░██║██╔════╝██╔══██╗██╔════╝██║██╔══██╗████╗░██║  ░████║░░░░░╚════██╗
-╚██╗░██╔╝█████╗░░██████╔╝╚█████╗░██║██║░░██║██╔██╗██║  ██╔██║░░░░░░░███╔═╝
-░╚████╔╝░██╔══╝░░██╔══██╗░╚═══██╗██║██║░░██║██║╚████║  ╚═╝██║░░░░░██╔══╝░░
-░░╚██╔╝░░███████╗██║░░██║██████╔╝██║╚█████╔╝██║░╚███║  ███████╗██╗███████╗
-░░░╚═╝░░░╚══════╝╚═╝░░╚═╝╚═════╝░╚═╝░╚════╝░╚═╝░░╚══╝  ╚══════╝╚═╝╚══════╝''')
+
+██╗░░░██╗███████╗██████╗░░██████╗██╗░█████╗░███╗░░██╗  ░░███╗░░░░░██████╗░██╗
+██║░░░██║██╔════╝██╔══██╗██╔════╝██║██╔══██╗████╗░██║  ░████║░░░░░╚════██╗██║
+╚██╗░██╔╝█████╗░░██████╔╝╚█████╗░██║██║░░██║██╔██╗██║  ██╔██║░░░░░░█████╔╝██║
+░╚████╔╝░██╔══╝░░██╔══██╗░╚═══██╗██║██║░░██║██║╚████║  ╚═╝██║░░░░░░╚═══██╗╚═╝
+░░╚██╔╝░░███████╗██║░░██║██████╔╝██║╚█████╔╝██║░╚███║  ███████╗██╗██████╔╝██╗
+░░░╚═╝░░░╚══════╝╚═╝░░╚═╝╚═════╝░╚═╝░╚════╝░╚═╝░░╚══╝  ╚══════╝╚═╝╚═════╝░╚═╝''')
 __author__ = 'Dynasty' 
-__VERSION__ = '1.2'
+__VERSION__ = '1.3'
 os.system("title PRESS ENTER")
 
 banner = r'''
@@ -83,7 +84,7 @@ Anime.Fade(Center.XCenter(banner), Colors.rainbow, Colorate.Vertical, interval=0
 os.system("title  Hello, "+   username)
 
 banner = Center.XCenter("""
-ver 1.21
+ver 1.3
 ███████╗██████╗░  ░█████╗░██╗░░░░░███████╗░█████╗░███╗░░██╗███████╗██████╗░
 ██╔════╝██╔══██╗  ██╔══██╗██║░░░░░██╔════╝██╔══██╗████╗░██║██╔════╝██╔══██╗
 █████╗░░██████╔╝  ██║░░╚═╝██║░░░░░█████╗░░███████║██╔██╗██║█████╗░░██████╔╝
@@ -92,6 +93,7 @@ ver 1.21
 ╚═╝░░░░░╚═╝░░╚═╝  ░╚════╝░╚══════╝╚══════╝╚═╝░░╚═╝╚═╝░░╚══╝╚══════╝╚═╝░░╚═╝
 by dynasty\n
 """)
+
 
 
 options = """
@@ -105,10 +107,12 @@ options = """
 7.)    tree (better Responsiveness)
 8.)    Delete Windows Update Cache
 9.)    disable windows defender
-10.)   update 
-11.)   removes tools folder with files
-12.)   more info
-13.)   exit
+10.)   sfc scan 
+11.)   Debloater (use it if u know how to)
+12.)   update 
+13.)   removes tools folder with files
+14.)   more info
+15.)   exit
 """
 def download(url, name):
     response =  requests.get(url)
@@ -121,12 +125,10 @@ def main():
     os.system('cls')
     print(Colorate.Vertical(Colors.blue_to_red, banner + options, 2))
     choice = input(Colors.green + 'Which option do you choose? ->  ')
+    
     #temp
     if choice == '1':
         download  ("https://untimelyimpressionableadministration.blus2tlia.repl.co/temp.bat", "temp_cleaner.bat")
-        time.sleep(5)
-        os.rmdir('temp')
-        os.rmdir('prefetch')
         
     #log cleaner
     elif choice == '2':
@@ -159,25 +161,37 @@ def main():
     #disable_services
     elif choice == '9':
         download("https://untimelyimpressionableadministration.blus2tlia.repl.co/def.reg", "disable_windows_defender.reg")
+    #sfc scan
+    elif choice == '10':
+        download("https://untimelyimpressionableadministration.blus2tlia.repl.co/sfc.bat", "sfc.bat")
+       
+    #debloater   
+    elif choice == '11':
+        download("https://untimelyimpressionableadministration.blus2tlia.repl.co/Debloater.bat", "Debloater.bat")
  
     #update
-    elif choice == '10':
+    elif choice == '12':
         url = "https://raw.githubusercontent.com/nightmare324/pycleaner/main/pycleaner.py"
         r = requests.get(url)  
-        username = os.getlogin()
         with open(fr"pycleaner.py", 'wb') as f:
           f.write(r.content)
           os.startfile("pycleaner.py")
           exit(0)
     #tools
-    elif choice == '11':
+    elif choice == '13':
        shutil.rmtree("tools")         
        main()
        
     #more info
-    elif choice == '12':
+    elif choice == '14':
         os.system('cls')
-        print(Colors.purple, "                                   made by dynasty and curd ", )
+        print(Colors.cyan, "                                           made by dynasty ", )
+        print (ver)
+        print ('''whats new: 
+    added sfc scan
+    added Debloater
+    fixed log cleaner
+    fixed some issues,''')
         version = sys.getwindowsversion()
         print(platform.platform())
         print(version)
@@ -187,18 +201,15 @@ def main():
         print(platform.version().split('.')[2]) 
         print((platform.machine())+ ' bit' )
         print('ur username is ' +   username)
-        print (ver)
         input("Press Enter to continue...")
         main()
     #exit
-    elif choice == '13': 
+    elif choice == '15': 
         os._exit(0) 
          
     #else       
     else:
-        print("That ain't an option\n")
-        os.rmdir('temp')  
-        os.rmdir('prefetch')  
+        print("That ain't an option\n") 
         print("RESTARTING!!!")
         time.sleep(2)
         main()
