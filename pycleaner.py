@@ -82,7 +82,7 @@ Anime.Fade(Center.XCenter(banner), Colors.rainbow, Colorate.Vertical, interval=0
 os.system("title  Hello, "+   username)
 
 banner = Center.XCenter("""
-ver 1.2
+ver 1.21
 ███████╗██████╗░  ░█████╗░██╗░░░░░███████╗░█████╗░███╗░░██╗███████╗██████╗░
 ██╔════╝██╔══██╗  ██╔══██╗██║░░░░░██╔════╝██╔══██╗████╗░██║██╔════╝██╔══██╗
 █████╗░░██████╔╝  ██║░░╚═╝██║░░░░░█████╗░░███████║██╔██╗██║█████╗░░██████╔╝
