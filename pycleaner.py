@@ -124,7 +124,7 @@ def download(url, name):
 def main():
     os.system('cls')
     print(Colorate.Vertical(Colors.blue_to_red, banner + options, 2))
-    choice = input(Colors.green + 'Which option do you choose? ->  ')
+    choice = input(Colors.yellow + 'Which option do you choose? ->  ')
     
     #temp
     if choice == '1':
