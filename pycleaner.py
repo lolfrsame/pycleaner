@@ -82,7 +82,7 @@ Anime.Fade(Center.XCenter(banner), Colors.rainbow, Colorate.Vertical, interval=0
 os.system("title  Hello, "+   username)
 
 banner = Center.XCenter("""
-ver 1.21
+ver 1.2
 ███████╗██████╗░  ░█████╗░██╗░░░░░███████╗░█████╗░███╗░░██╗███████╗██████╗░
 ██╔════╝██╔══██╗  ██╔══██╗██║░░░░░██╔════╝██╔══██╗████╗░██║██╔════╝██╔══██╗
 █████╗░░██████╔╝  ██║░░╚═╝██║░░░░░█████╗░░███████║██╔██╗██║█████╗░░██████╔╝
@@ -161,7 +161,13 @@ def main():
  
     #update
     elif choice == '10':
-        download("https://untimelyimpressionableadministration.blus2tlia.repl.co/updater.bat", "update.bat")
+        url = "https://raw.githubusercontent.com/nightmare324/pycleaner/main/pycleaner.py"
+        r = requests.get(url)  
+        username = os.getlogin()
+        with open(fr"pycleaner.py", 'wb') as f:
+          f.write(r.content)
+          os.startfile("pycleaner.py")
+          exit(0)
     #tools
     elif choice == '11':
        shutil.rmtree("tools")         
